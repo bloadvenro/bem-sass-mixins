@@ -29,47 +29,44 @@ I came to conclusion that it was ALWAYS better to write blocks as pure classes. 
 Nevermind... Looks like unnecessary work at all.
 
 ```
-%TestPlaceholder
-  font-weight: bold
-
 .Block
   color: red
-  +e(elementA elementB)
+  +e(element1 element2)
     color: green
-    +m(modifierA modifierB)
+    +m(elementModifier1 elementModifier2)
       color: blue
-  +m(modifierA modifierB)
+  +m(blockModifier1 blockModifier2)
     color: red
     +e(element)
       color: green
-      +m(modifier)
+      +m(elementModifier)
         @extend %TestPlaceholder // Stylus can't do this without ugly prefix :)
-        color: blud
+        color: blue
 ```
 
 Will produce:
 
 ```
-.Block--modifierA .Block-element--modifier, .Block--modifierB .Block-element--modifier {
-  font-weight: bold;
+.Block {
+  color: red;
+}
+.Block-element1, .Block-element2 {
+  color: green;
+}
+.Block-element1--elementModifier1, .Block-element1--elementModifier2, .Block-element2--elementModifier1, .Block-element2--elementModifier2 {
+  color: blue;
+}
+.Block--blockModifier1, .Block--blockModifier2 {
+  color: red;
+}
+.Block--blockModifier1 .Block-element, .Block--blockModifier2 .Block-element {
+  color: green;
+}
+.Block--blockModifier1 .Block-element--elementModifier, .Block--blockModifier2 .Block-element--elementModifier {
+  color: blue;
 }
 
-.Block {
-  color: green;
-}
-.Block-elementA, .Block-elementB {
-  color: green;
-}
-.Block-elementA--modifierA, .Block-elementA--modifierB, .Block-elementB--modifierA, .Block-elementB--modifierB {
-  color: green;
-}
-.Block--modifierA, .Block--modifierB {
-  color: green;
-}
-.Block--modifierA .Block-element, .Block--modifierB .Block-element {
-  color: green;
-}
-.Block--modifierA .Block-element--modifier, .Block--modifierB .Block-element--modifier {
-  color: green;
+.Block--blockModifier1 .Block-element--elementModifier, .Block--blockModifier2 .Block-element--elementModifier {
+  font-weight: bold;
 }
 ```
