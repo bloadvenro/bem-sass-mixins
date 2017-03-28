@@ -1,0 +1,24 @@
+{
+  "name": "bem-sass-mixins",
+  "version": "1.0.0",
+  "description": "Minimalistic core. Supports mixins: +m(<list of modifiers>) and +e(<list of elements>) with nest-in-state support.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bloadvenro/bem-sass-mixins.git"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "bem"
+  ],
+  "author": "Viktor Petevotov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bloadvenro/bem-sass-mixins/issues"
+  },
+  "homepage": "https://github.com/bloadvenro/bem-sass-mixins#readme"
+}

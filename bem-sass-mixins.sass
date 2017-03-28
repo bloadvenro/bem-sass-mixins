@@ -1,0 +1,27 @@
+$bemSeparators: (element: '__', modifier: '--') !default
+
+// Return nest-in-state element if block has modifier class.
+@function _nestInState($parent)
+  $parent: str-slice(inspect($parent), 0) // To string.
+  $modifierAt: str-index($parent, map-get($bemSeparators, 'modifier'))
+  @if $modifierAt != null
+    @return #{$parent + ' ' + str-slice($parent, 0, $modifierAt - 1)}
+  @return $parent
+
+// Generate prefixes for block(s) or element(s).
+@function bemify($items, $type)
+  $output: ()
+  @each $parent in &
+    @each $item in $items
+      @if $type == 'element'
+        $parent: _nestInState($parent)
+      $output: append($output, #{$parent + map-get($bemSeparators, $type) + $item}, comma)
+  @return $output
+
+=e($elements)
+  @at-root #{bemify($elements, 'element')}
+    @content
+
+=m($modifiers)
+  @at-root #{bemify($modifiers, 'modifier')}
+    @content
