@@ -1,6 +1,6 @@
-# Bem class mixins.
+# Bem class mixins
 
-Minimalistic core. Supports mixins: +m(<list of modifiers>) and +e(<list of elements>) with nest-in-state support.
+Minimalistic core. Supports mixins: `+m(<list of modifiers>)` and `+e(<list of elements>)` with nest-in-state support.
 
 ## Usage
 
