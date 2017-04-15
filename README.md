@@ -26,7 +26,9 @@ Define preferrable separators in your variables file like `$bemSeparators: (elem
 
 I came to conclusion that it was ALWAYS better to write blocks as pure classes. Problems happen when composing mixins (like `+b(BlockA BlockB)`) which represent blocks. We cannot have two block mixins each under another, so we may think about list of blocks passed to mixin. Ok, but what if we also want to specify namespaces, which may also be different per block or even absent for some blocks?
 
-Nevermind... Looks like unnecessary work at all.
+Nevermind... Looks like unnecessary work at all. Just keep in mind, that block mixins are not implemented here.
+
+Look at the example of usage:
 
 ```
 .Block
