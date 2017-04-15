@@ -16,7 +16,7 @@ Minimalistic core. Supports mixins: `+m(<list of modifiers>)` and `+e(<list of e
 
 *Gulp*
 
-See [gulp-sass options](https://github.com/dlmanning/gulp-sass#options). You'll need `includePaths` option to resolve `@import 'bem-sass-mixins'` (from node_modules/bemsass-mixins) or `@import 'bem-sass-mixins/bem-sass-mixins'` (from node_modules/). Looks simple enough to configure.
+See [gulp-sass options](https://github.com/dlmanning/gulp-sass#options). You'll need `includePaths=['path/to/node_modules/bem-sass-mixins']` option to resolve `@import 'bem-sass-mixins'` (from `node_modules/bem-sass-mixins`) or `includePaths=['path/to/node_modules']` to resolve `@import 'bem-sass-mixins/bem-sass-mixins'` (from `node_modules/`). Looks simple enough to configure.
 
 ### Configure
 
@@ -24,7 +24,7 @@ Define preferrable separators in your variables file like `$bemSeparators: (elem
 
 ### Use
 
-I came to conclusion that it was ALWAYS better to write blocks as pure classes. Problems happen when composing mixins which represent blocks. E.g. we cannot have two block mixins each under another, so we may think about list of blocks passed to mixin. Ok, but what if we also want to specify namespaces, which may also be different per block or even absent for some blocks?
+I came to conclusion that it was ALWAYS better to write blocks as pure classes. Problems happen when composing mixins (like `+b(BlockA BlockB)`) which represent blocks. We cannot have two block mixins each under another, so we may think about list of blocks passed to mixin. Ok, but what if we also want to specify namespaces, which may also be different per block or even absent for some blocks?
 
 Nevermind... Looks like unnecessary work at all.
 
